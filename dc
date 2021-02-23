@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+OP=$1
+
+if [ "${OP}" = "up" ]; then
+    docker-compose -f docker/docker-compose.yml up --build -d --remove-orphans
+fi
+
+if [ "${OP}" = "down" ]; then
+    docker-compose -f docker/docker-compose.yml down
+fi
+
+if [ "${OP}" = "rebuild" ]; then
+    docker-compose -f docker/docker-compose.yml down
+    docker-compose -f docker/docker-compose.yml build --no-cache --remove-orphans
+fi

@@ -1,0 +1,2 @@
+#!/bin/sh
+docker-compose -f docker/docker-compose.yml exec php composer "$@"
